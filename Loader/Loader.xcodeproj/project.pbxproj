@@ -1,0 +1,313 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EE32EF51152605B600ABDB89 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE32EF50152605B600ABDB89 /* Cocoa.framework */; };
+		EE32EF5B152605B600ABDB89 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE32EF59152605B600ABDB89 /* InfoPlist.strings */; };
+		EE32EF5D152605B600ABDB89 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE32EF5C152605B600ABDB89 /* main.m */; };
+		EE32EF61152605B600ABDB89 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = EE32EF5F152605B600ABDB89 /* Credits.rtf */; };
+		EE32EF64152605B600ABDB89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE32EF63152605B600ABDB89 /* AppDelegate.m */; };
+		EE32EF67152605B600ABDB89 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE32EF65152605B600ABDB89 /* MainMenu.xib */; };
+		EE32EF6A152605B700ABDB89 /* Loader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE32EF68152605B700ABDB89 /* Loader.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EE32EF4C152605B600ABDB89 /* Loader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE32EF50152605B600ABDB89 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		EE32EF53152605B600ABDB89 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		EE32EF54152605B600ABDB89 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		EE32EF55152605B600ABDB89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EE32EF58152605B600ABDB89 /* Loader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Loader-Info.plist"; sourceTree = "<group>"; };
+		EE32EF5A152605B600ABDB89 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EE32EF5C152605B600ABDB89 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EE32EF5E152605B600ABDB89 /* Loader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Loader-Prefix.pch"; sourceTree = "<group>"; };
+		EE32EF60152605B600ABDB89 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		EE32EF62152605B600ABDB89 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EE32EF63152605B600ABDB89 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EE32EF66152605B600ABDB89 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		EE32EF69152605B700ABDB89 /* Loader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Loader.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE32EF49152605B600ABDB89 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE32EF51152605B600ABDB89 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE32EF41152605B600ABDB89 = {
+			isa = PBXGroup;
+			children = (
+				EE32EF56152605B600ABDB89 /* Loader */,
+				EE32EF4F152605B600ABDB89 /* Frameworks */,
+				EE32EF4D152605B600ABDB89 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EE32EF4D152605B600ABDB89 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE32EF4C152605B600ABDB89 /* Loader.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE32EF4F152605B600ABDB89 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE32EF50152605B600ABDB89 /* Cocoa.framework */,
+				EE32EF52152605B600ABDB89 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE32EF52152605B600ABDB89 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE32EF53152605B600ABDB89 /* AppKit.framework */,
+				EE32EF54152605B600ABDB89 /* CoreData.framework */,
+				EE32EF55152605B600ABDB89 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		EE32EF56152605B600ABDB89 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				EE32EF62152605B600ABDB89 /* AppDelegate.h */,
+				EE32EF63152605B600ABDB89 /* AppDelegate.m */,
+				EE32EF65152605B600ABDB89 /* MainMenu.xib */,
+				EE32EF68152605B700ABDB89 /* Loader.xcdatamodeld */,
+				EE32EF57152605B600ABDB89 /* Supporting Files */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
+		EE32EF57152605B600ABDB89 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE32EF58152605B600ABDB89 /* Loader-Info.plist */,
+				EE32EF59152605B600ABDB89 /* InfoPlist.strings */,
+				EE32EF5C152605B600ABDB89 /* main.m */,
+				EE32EF5E152605B600ABDB89 /* Loader-Prefix.pch */,
+				EE32EF5F152605B600ABDB89 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE32EF4B152605B600ABDB89 /* Loader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE32EF6D152605B700ABDB89 /* Build configuration list for PBXNativeTarget "Loader" */;
+			buildPhases = (
+				EE32EF48152605B600ABDB89 /* Sources */,
+				EE32EF49152605B600ABDB89 /* Frameworks */,
+				EE32EF4A152605B600ABDB89 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Loader;
+			productName = Loader;
+			productReference = EE32EF4C152605B600ABDB89 /* Loader.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE32EF43152605B600ABDB89 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Jungle Candy Software";
+			};
+			buildConfigurationList = EE32EF46152605B600ABDB89 /* Build configuration list for PBXProject "Loader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EE32EF41152605B600ABDB89;
+			productRefGroup = EE32EF4D152605B600ABDB89 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE32EF4B152605B600ABDB89 /* Loader */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE32EF4A152605B600ABDB89 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE32EF5B152605B600ABDB89 /* InfoPlist.strings in Resources */,
+				EE32EF61152605B600ABDB89 /* Credits.rtf in Resources */,
+				EE32EF67152605B600ABDB89 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE32EF48152605B600ABDB89 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE32EF5D152605B600ABDB89 /* main.m in Sources */,
+				EE32EF64152605B600ABDB89 /* AppDelegate.m in Sources */,
+				EE32EF6A152605B700ABDB89 /* Loader.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EE32EF59152605B600ABDB89 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE32EF5A152605B600ABDB89 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EE32EF5F152605B600ABDB89 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE32EF60152605B600ABDB89 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		EE32EF65152605B600ABDB89 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE32EF66152605B600ABDB89 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EE32EF6B152605B700ABDB89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		EE32EF6C152605B700ABDB89 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		EE32EF6E152605B700ABDB89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Loader/Loader-Prefix.pch";
+				INFOPLIST_FILE = "Loader/Loader-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EE32EF6F152605B700ABDB89 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Loader/Loader-Prefix.pch";
+				INFOPLIST_FILE = "Loader/Loader-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE32EF46152605B600ABDB89 /* Build configuration list for PBXProject "Loader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE32EF6B152605B700ABDB89 /* Debug */,
+				EE32EF6C152605B700ABDB89 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE32EF6D152605B700ABDB89 /* Build configuration list for PBXNativeTarget "Loader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE32EF6E152605B700ABDB89 /* Debug */,
+				EE32EF6F152605B700ABDB89 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EE32EF68152605B700ABDB89 /* Loader.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EE32EF69152605B700ABDB89 /* Loader.xcdatamodel */,
+			);
+			currentVersion = EE32EF69152605B700ABDB89 /* Loader.xcdatamodel */;
+			path = Loader.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EE32EF43152605B600ABDB89 /* Project object */;
+}
