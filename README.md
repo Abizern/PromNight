@@ -19,7 +19,10 @@ projects.
 To create the database to be used compile and run the loader program.
 
 Click the "Load Data" button and navigate to the csv file that hold the data
-to load.
+to load. There is a `test.csv` file in the Common folder.
+
+The store is recreated each time - loading data doesn't append new objects, it
+creates a new store with the new data.
 
 This has to be in the format 'firstName', 'lastName', 'ticketNumber' and the
 file is expected to have the first row be the header. (This is important, becase
