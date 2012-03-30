@@ -8,17 +8,34 @@
 
 #import "AppDelegate.h"
 
+@interface AppDelegate ()
+
+@property (strong, nonatomic) NSURL *storeURL;
+
+- (void)parseFileAtURL:(NSURL *)url;
+
+@end
+
 @implementation AppDelegate
 
 @synthesize window = _window;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize managedObjectContext = __managedObjectContext;
+@synthesize storeURL = _storeURL;
+@synthesize recordsToProcessLabel = _recordsToProcessLabel;
+@synthesize recordsProcessedLabel = _recordsProcessedLabel;
+@synthesize storeLocationLabel = _storeLocationLabel;
 
 #pragma mark - Application life cycle
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+}
+
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
+    // When the window is closed, terminate the app
+    return YES;
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
@@ -89,7 +106,7 @@
 
     [panel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
         if (result == NSFileHandlingPanelOKButton) {
-            DLog(@"File selected %@", panel.URL);
+            [self parseFileAtURL:panel.URL];
         } else {
             DLog(@"File selection cancelled");
         }
@@ -159,6 +176,19 @@
     }
     
     NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"Loader.storedata"];
+    
+    // Keep a reference to the URL for the store
+    self.storeURL = url;
+    
+    // If a store already exists - we want to delete it so we are always creating a new store rather than appending to it.
+    if ([url checkResourceIsReachableAndReturnError:nil]) {
+        NSFileManager *fm = [[NSFileManager alloc] init];
+        if (![fm removeItemAtURL:url error:&error]) {
+            DLog(@"Can't remove existing store because: %@", error);
+            abort(); // Harsh, but no point carrying on if we can't remove the existing store.
+        }
+    }
+    
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
     if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:nil error:&error]) {
         [[NSApplication sharedApplication] presentError:error];
@@ -193,6 +223,55 @@
 // Returns the NSUndoManager for the application. In this case, the manager returned is that of the managed object context for the application.
 - (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window {
     return [[self managedObjectContext] undoManager];
+}
+
+#pragma mark - Private Methods
+
+- (void)parseFileAtURL:(NSURL *)url {
+    NSError *error;
+    NSString *fileContents = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+    
+    if (!fileContents) {
+        DLog(@"Error reading file: %@", error);
+        abort(); // Bit harsh - but if we can't read the file, there's not much the app can do.
+    }
+    
+    NSMutableArray *arrayOfLines = [[fileContents componentsSeparatedByString:@"\n"] mutableCopy];
+    
+    // Remove the first line, which just contains the headers
+    [arrayOfLines removeObjectAtIndex:0];
+    
+    NSInteger numberOfRecordsToProcess = [arrayOfLines count];
+    NSInteger numberOfRecordsSuccessfullyProcessed = 0;
+    for (NSString *line in arrayOfLines) {
+        // Split the line into an array
+        NSArray *attendeeElements = [line componentsSeparatedByString:@","];
+        
+        // Since we know that the order is firstName, lastName, Number we can create an object from this
+        
+        // Create a new entity in the managed object context
+        NSManagedObjectContext *moc = self.managedObjectContext;
+        NSManagedObject *attendee = [NSEntityDescription insertNewObjectForEntityForName:@"Attendee" inManagedObjectContext:moc];
+        
+        // Set the values of the the element.
+        // We don't need to set the `arrived` value because that defaults to NO, which is correct
+        [attendee setValue:[attendeeElements objectAtIndex:0] forKey:@"firstName"];
+        [attendee setValue:[attendeeElements objectAtIndex:1] forKey:@"lastName"];
+        [attendee setValue:[NSNumber numberWithInteger:[[attendeeElements objectAtIndex:2] integerValue]] forKey:@"ticketNumber"];
+        
+        // Save the new object to the store.
+        if (![moc save:&error]) {
+            DLog(@"Unable to save record: %@, because: %@", line, error);
+        } else {
+            numberOfRecordsSuccessfullyProcessed++;
+        }
+        [self.recordsToProcessLabel setStringValue:[NSString stringWithFormat:@"%lu", numberOfRecordsToProcess]];
+        [self.recordsProcessedLabel setStringValue:[NSString stringWithFormat:@"%lu", numberOfRecordsSuccessfullyProcessed]];
+        [self.storeLocationLabel setStringValue:[self.storeURL path]];
+        
+    }
+        
+        
 }
 
 

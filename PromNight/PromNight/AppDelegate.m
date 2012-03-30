@@ -14,6 +14,9 @@
 
 @synthesize window = _window;
 @synthesize managedObjectContext = __managedObjectContext;
+@synthesize recordsToProcessLabel = _recordsToProcessLabel;
+@synthesize recordsProcessedLabel = _recordsProcessedLabel;
+@synthesize storeLocationLabel = _storeLocationLabel;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 

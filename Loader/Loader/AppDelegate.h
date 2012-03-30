@@ -15,6 +15,9 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (weak) IBOutlet NSTextField *recordsToProcessLabel;
+@property (weak) IBOutlet NSTextField *recordsProcessedLabel;
+@property (weak) IBOutlet NSTextField *storeLocationLabel;
 
 - (IBAction)saveAction:(id)sender;
 
