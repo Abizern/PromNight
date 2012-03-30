@@ -7,30 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE0DC9661526087200896418 /* PromNight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE0DC9641526087200896418 /* PromNight.xcdatamodeld */; };
 		EE32EF51152605B600ABDB89 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE32EF50152605B600ABDB89 /* Cocoa.framework */; };
 		EE32EF5B152605B600ABDB89 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE32EF59152605B600ABDB89 /* InfoPlist.strings */; };
 		EE32EF5D152605B600ABDB89 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE32EF5C152605B600ABDB89 /* main.m */; };
 		EE32EF61152605B600ABDB89 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = EE32EF5F152605B600ABDB89 /* Credits.rtf */; };
 		EE32EF64152605B600ABDB89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE32EF63152605B600ABDB89 /* AppDelegate.m */; };
 		EE32EF67152605B600ABDB89 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE32EF65152605B600ABDB89 /* MainMenu.xib */; };
-		EE32EF6A152605B700ABDB89 /* Loader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE32EF68152605B700ABDB89 /* Loader.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE0DC9651526087200896418 /* PromNight.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PromNight.xcdatamodel; sourceTree = "<group>"; };
+		EE0DC9681526088E00896418 /* CommonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonMacros.h; path = ../../Common/CommonMacros.h; sourceTree = "<group>"; };
 		EE32EF4C152605B600ABDB89 /* Loader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE32EF50152605B600ABDB89 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		EE32EF53152605B600ABDB89 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		EE32EF54152605B600ABDB89 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		EE32EF55152605B600ABDB89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		EE32EF58152605B600ABDB89 /* Loader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Loader-Info.plist"; sourceTree = "<group>"; };
+		EE32EF58152605B600ABDB89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE32EF5A152605B600ABDB89 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EE32EF5C152605B600ABDB89 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EE32EF5E152605B600ABDB89 /* Loader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Loader-Prefix.pch"; sourceTree = "<group>"; };
+		EE32EF5E152605B600ABDB89 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		EE32EF60152605B600ABDB89 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		EE32EF62152605B600ABDB89 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EE32EF63152605B600ABDB89 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EE32EF66152605B600ABDB89 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		EE32EF69152605B700ABDB89 /* Loader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Loader.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +88,7 @@
 				EE32EF62152605B600ABDB89 /* AppDelegate.h */,
 				EE32EF63152605B600ABDB89 /* AppDelegate.m */,
 				EE32EF65152605B600ABDB89 /* MainMenu.xib */,
-				EE32EF68152605B700ABDB89 /* Loader.xcdatamodeld */,
+				EE32EF701526068500ABDB89 /* Model */,
 				EE32EF57152605B600ABDB89 /* Supporting Files */,
 			);
 			path = Loader;
@@ -96,13 +97,22 @@
 		EE32EF57152605B600ABDB89 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EE32EF58152605B600ABDB89 /* Loader-Info.plist */,
+				EE0DC9681526088E00896418 /* CommonMacros.h */,
+				EE32EF58152605B600ABDB89 /* Info.plist */,
 				EE32EF59152605B600ABDB89 /* InfoPlist.strings */,
 				EE32EF5C152605B600ABDB89 /* main.m */,
-				EE32EF5E152605B600ABDB89 /* Loader-Prefix.pch */,
+				EE32EF5E152605B600ABDB89 /* Prefix.pch */,
 				EE32EF5F152605B600ABDB89 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE32EF701526068500ABDB89 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE0DC9641526087200896418 /* PromNight.xcdatamodeld */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +181,7 @@
 			files = (
 				EE32EF5D152605B600ABDB89 /* main.m in Sources */,
 				EE32EF64152605B600ABDB89 /* AppDelegate.m in Sources */,
-				EE32EF6A152605B700ABDB89 /* Loader.xcdatamodeld in Sources */,
+				EE0DC9661526087200896418 /* PromNight.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +266,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Loader/Loader-Prefix.pch";
-				INFOPLIST_FILE = "Loader/Loader-Info.plist";
+				GCC_PREFIX_HEADER = Loader/Prefix.pch;
+				INFOPLIST_FILE = Loader/Info.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -267,8 +277,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Loader/Loader-Prefix.pch";
-				INFOPLIST_FILE = "Loader/Loader-Info.plist";
+				GCC_PREFIX_HEADER = Loader/Prefix.pch;
+				INFOPLIST_FILE = Loader/Info.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -293,17 +303,19 @@
 				EE32EF6F152605B700ABDB89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		EE32EF68152605B700ABDB89 /* Loader.xcdatamodeld */ = {
+		EE0DC9641526087200896418 /* PromNight.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				EE32EF69152605B700ABDB89 /* Loader.xcdatamodel */,
+				EE0DC9651526087200896418 /* PromNight.xcdatamodel */,
 			);
-			currentVersion = EE32EF69152605B700ABDB89 /* Loader.xcdatamodel */;
-			path = Loader.xcdatamodeld;
+			currentVersion = EE0DC9651526087200896418 /* PromNight.xcdatamodel */;
+			name = PromNight.xcdatamodeld;
+			path = ../../Common/PromNight.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
