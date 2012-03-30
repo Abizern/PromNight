@@ -82,7 +82,19 @@
 }
 
 - (IBAction)loadData:(id)sender {
-    DLog(@"Button pressed");
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    
+    panel.allowedFileTypes = [NSArray arrayWithObject:@"csv"];
+    panel.canChooseDirectories = NO;
+
+    [panel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
+        if (result == NSFileHandlingPanelOKButton) {
+            DLog(@"File selected %@", panel.URL);
+        } else {
+            DLog(@"File selection cancelled");
+        }
+    }];
+
 }
 
 #pragma mark - Data methods
