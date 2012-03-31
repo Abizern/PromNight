@@ -31,3 +31,5 @@ the first line is ignored).
 After it runs you will see the number of items that it had to process, the
 number of items successfully processed, and the location of the store that you
 need to import into the iOS project.
+
+The window shows where the `PromNight.sqlite` file has been created. Copy this
