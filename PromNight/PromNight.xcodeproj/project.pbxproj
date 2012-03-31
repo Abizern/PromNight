@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD183B65152691E40033025D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD183B64152691E40033025D /* MainViewController.m */; };
-		AD183B67152695E60033025D /* PromNight.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = AD183B66152695E60033025D /* PromNight.sqlite */; };
+		AD183B691526A1CC0033025D /* PromNight.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = AD183B681526A1CC0033025D /* PromNight.sqlite */; };
 		EE0DC9621526086000896418 /* PromNight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE0DC9601526086000896418 /* PromNight.xcdatamodeld */; };
 		EE51D2E91526054E008781A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE51D2E81526054E008781A1 /* UIKit.framework */; };
 		EE51D2EB1526054E008781A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE51D2EA1526054E008781A1 /* Foundation.framework */; };
@@ -23,7 +23,7 @@
 /* Begin PBXFileReference section */
 		AD183B63152691E40033025D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		AD183B64152691E40033025D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		AD183B66152695E60033025D /* PromNight.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PromNight.sqlite; sourceTree = "<group>"; };
+		AD183B681526A1CC0033025D /* PromNight.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PromNight.sqlite; sourceTree = "<group>"; };
 		EE0DC9611526086000896418 /* PromNight.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PromNight.xcdatamodel; sourceTree = "<group>"; };
 		EE0DC9691526089A00896418 /* CommonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonMacros.h; path = ../../Common/CommonMacros.h; sourceTree = "<group>"; };
 		EE51D2E41526054E008781A1 /* PromNight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromNight.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				EE0DC9601526086000896418 /* PromNight.xcdatamodeld */,
+				AD183B681526A1CC0033025D /* PromNight.sqlite */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -106,7 +107,6 @@
 				EE51D2FC1526054E008781A1 /* MainStoryboard.storyboard */,
 				AD183B63152691E40033025D /* MainViewController.h */,
 				AD183B64152691E40033025D /* MainViewController.m */,
-				AD183B66152695E60033025D /* PromNight.sqlite */,
 				EE32EF71152606A400ABDB89 /* Model */,
 				EE32EF73152606B000ABDB89 /* Interface */,
 				EE51D2F11526054E008781A1 /* Supporting Files */,
@@ -179,7 +179,7 @@
 			files = (
 				EE51D2F51526054E008781A1 /* InfoPlist.strings in Resources */,
 				EE51D2FE1526054E008781A1 /* MainStoryboard.storyboard in Resources */,
-				AD183B67152695E60033025D /* PromNight.sqlite in Resources */,
+				AD183B691526A1CC0033025D /* PromNight.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
