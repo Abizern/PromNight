@@ -33,3 +33,4 @@ number of items successfully processed, and the location of the store that you
 need to import into the iOS project.
 
 The window shows where the `PromNight.sqlite` file has been created. Copy this
+into the iOS project. For the sample data this has already been done.
