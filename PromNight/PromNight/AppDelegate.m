@@ -93,6 +93,24 @@
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"PromNight.sqlite"];
     
+    // This is where we copy our preloaded bundle into the documents directory if it doesn't already exist there.
+    if (![storeURL checkResourceIsReachableAndReturnError:nil]) {
+        NSFileManager *fm = [[NSFileManager alloc] init];
+        
+        NSURL *defaultStoreURL = [[NSBundle mainBundle] URLForResource:@"PromNight" withExtension:@"sqlite"];
+        if (!defaultStoreURL) {
+            DLog(@"Oops!, there is no default datastore");
+            abort(); // Harsh, but no point carrying on if there is no data.
+        }
+        
+        NSError *err = nil;
+        if (![fm copyItemAtURL:defaultStoreURL toURL:storeURL error:&err]) {
+            DLog(@"Oops! Cant' move the default store URL to the documents directory: %@", err);
+            abort(); // Harsh, but no point carrying on if we can't update the datastore.
+        }
+        
+    }
+    
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
