@@ -255,8 +255,13 @@
         
         // Set the values of the the element.
         // We don't need to set the `arrived` value because that defaults to NO, which is correct
-        [attendee setValue:[attendeeElements objectAtIndex:0] forKey:@"firstName"];
-        [attendee setValue:[attendeeElements objectAtIndex:1] forKey:@"lastName"];
+        
+        // Trim leading and trailing whitespace in the names.
+        NSString *firstName = [[attendeeElements objectAtIndex:0] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        NSString *lastName = [[attendeeElements objectAtIndex:1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        
+        [attendee setValue:firstName forKey:@"firstName"];
+        [attendee setValue:lastName forKey:@"lastName"];
         [attendee setValue:[NSNumber numberWithInteger:[[attendeeElements objectAtIndex:2] integerValue]] forKey:@"ticketNumber"];
         
         // Save the new object to the store.
