@@ -16,8 +16,6 @@
 		EE51D2F71526054E008781A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE51D2F61526054E008781A1 /* main.m */; };
 		EE51D2FB1526054E008781A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE51D2FA1526054E008781A1 /* AppDelegate.m */; };
 		EE51D2FE1526054E008781A1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE51D2FC1526054E008781A1 /* MainStoryboard.storyboard */; };
-		EE51D3041526054E008781A1 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE51D3031526054E008781A1 /* MasterViewController.m */; };
-		EE51D3071526054E008781A1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE51D3061526054E008781A1 /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,10 +33,6 @@
 		EE51D2F91526054E008781A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EE51D2FA1526054E008781A1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EE51D2FD1526054E008781A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		EE51D3021526054E008781A1 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		EE51D3031526054E008781A1 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		EE51D3051526054E008781A1 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		EE51D3061526054E008781A1 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +99,6 @@
 				EE51D2F91526054E008781A1 /* AppDelegate.h */,
 				EE51D2FA1526054E008781A1 /* AppDelegate.m */,
 				EE51D2FC1526054E008781A1 /* MainStoryboard.storyboard */,
-				EE51D3021526054E008781A1 /* MasterViewController.h */,
-				EE51D3031526054E008781A1 /* MasterViewController.m */,
-				EE51D3051526054E008781A1 /* DetailViewController.h */,
-				EE51D3061526054E008781A1 /* DetailViewController.m */,
 				EE32EF71152606A400ABDB89 /* Model */,
 				EE32EF73152606B000ABDB89 /* Interface */,
 				EE51D2F11526054E008781A1 /* Supporting Files */,
@@ -193,8 +183,6 @@
 			files = (
 				EE51D2F71526054E008781A1 /* main.m in Sources */,
 				EE51D2FB1526054E008781A1 /* AppDelegate.m in Sources */,
-				EE51D3041526054E008781A1 /* MasterViewController.m in Sources */,
-				EE51D3071526054E008781A1 /* DetailViewController.m in Sources */,
 				EE0DC9621526086000896418 /* PromNight.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
