@@ -175,7 +175,7 @@
         }
     }
     
-    NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"Loader.sqlite"];
+    NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"PromNight.sqlite"];
     
     // Keep a reference to the URL for the store
     self.storeURL = url;

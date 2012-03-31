@@ -13,9 +13,13 @@
 @end
 
 @implementation MainViewController
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize inputField = _inputField;
+@synthesize firstNameField = _firstNameField;
+@synthesize lastNameField = _lastNameField;
+@synthesize arrivedSwitch = _arrivedSwitch;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -23,20 +27,21 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
+    [self setInputField:nil];
+    [self setFirstNameField:nil];
+    [self setLastNameField:nil];
+    [self setArrivedSwitch:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	return YES;
 }
 
