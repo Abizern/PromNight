@@ -151,6 +151,4 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
-- (IBAction)loadData:(id)sender {
-}
 @end
