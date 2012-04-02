@@ -262,7 +262,7 @@
         // Trim leading and trailing whitespace in the names.
         NSString *firstName = [[attendeeElements objectAtIndex:2] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         NSString *lastName = [[attendeeElements objectAtIndex:3] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-                        
+                
         [attendee setValue:firstName forKey:@"firstName"];
         [attendee setValue:lastName forKey:@"lastName"];
         
