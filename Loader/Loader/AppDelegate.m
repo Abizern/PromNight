@@ -247,7 +247,7 @@
         // Split the line into an array
         NSArray *attendeeElements = [line componentsSeparatedByString:@","];
         
-        // Since we know that the order is firstName, lastName, Number we can create an object from this
+        // Since we know that the order is ticketNumber, barcodeNumber, firstName, lastName we can create an object from this
         
         // Create a new entity in the managed object context
         NSManagedObjectContext *moc = self.managedObjectContext;
