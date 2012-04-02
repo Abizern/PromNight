@@ -11,6 +11,7 @@
 @interface MainViewController : UIViewController <UITextFieldDelegate>
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (weak, nonatomic) IBOutlet UITextField *inputField;
+@property (weak, nonatomic) IBOutlet UILabel *ticketNumberField;
 @property (weak, nonatomic) IBOutlet UILabel *firstNameField;
 @property (weak, nonatomic) IBOutlet UILabel *lastNameField;
 @property (weak, nonatomic) IBOutlet UISwitch *arrivedSwitch;

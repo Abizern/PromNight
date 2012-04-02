@@ -236,7 +236,7 @@
         abort(); // Bit harsh - but if we can't read the file, there's not much the app can do.
     }
     
-    NSMutableArray *arrayOfLines = [[fileContents componentsSeparatedByString:@"\n"] mutableCopy];
+    NSMutableArray *arrayOfLines = [[fileContents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] mutableCopy];
     
     // Remove the first line, which just contains the headers
     [arrayOfLines removeObjectAtIndex:0];

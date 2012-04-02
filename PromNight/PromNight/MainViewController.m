@@ -10,13 +10,14 @@
 
 @interface MainViewController ()
 
-- (void)checkTicketNumber:(NSString *)string;
+- (void)checkBarcodeNumber:(NSString *)string;
 
 @end
 
 @implementation MainViewController
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize inputField = _inputField;
+@synthesize ticketNumberField = _ticketNumberField;
 @synthesize firstNameField = _firstNameField;
 @synthesize lastNameField = _lastNameField;
 @synthesize arrivedSwitch = _arrivedSwitch;
@@ -36,6 +37,7 @@
 
 - (void)viewDidUnload {
     [self setInputField:nil];
+    [self setTicketNumberField:nil];
     [self setFirstNameField:nil];
     [self setLastNameField:nil];
     [self setArrivedSwitch:nil];
@@ -50,19 +52,19 @@
 #pragma mark - UITextFieldDelegate methods
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self checkTicketNumber:textField.text];
+    [self checkBarcodeNumber:textField.text];
     textField.text = @"";
     return YES;
 }
 
 #pragma mark - Private methods;
 
-- (void)checkTicketNumber:(NSString *)string {
+- (void)checkBarcodeNumber:(NSString *)string {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Attendee" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ticketNumber == %u", [string integerValue]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"barcodeNumber == %u", [string integerValue]];
     [fetchRequest setPredicate:predicate];
     
     NSError *error = nil;
@@ -74,6 +76,7 @@
     
     NSManagedObject *attendee = [fetchedObjects lastObject];
     
+    self.ticketNumberField.text = [attendee valueForKey:@"ticketNumber"];
     self.firstNameField.text = [attendee valueForKey:@"firstName"];
     self.lastNameField.text = [attendee valueForKey:@"lastName"];
     
