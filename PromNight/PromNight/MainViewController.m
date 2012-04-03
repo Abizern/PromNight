@@ -32,7 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
 }
 
 - (void)viewDidUnload {
@@ -49,17 +49,25 @@
 	return YES;
 }
 
+#pragma mark -  Action methods
+
+- (IBAction)barcodeNumberChanged:(UITextField *)sender {
+    NSInteger inputLength = [sender.text length];
+    
+    if (inputLength == 6) {
+        [self checkBarcodeNumber:sender.text];
+        sender.text = @"";
+    }
+}
+
 #pragma mark - UITextFieldDelegate methods
 
-- (void)executeCheck:(UITextField *)textField {
-    
-    if ([textField.text length] == 6) { 
-        
-        [self checkBarcodeNumber:textField.text];
-        
-    }
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self checkBarcodeNumber:textField.text];
+    textField.text = @"";
+    return YES;
 }
+
 
 #pragma mark - Private methods;
 
@@ -90,5 +98,6 @@
     
     
 }
+
 
 @end

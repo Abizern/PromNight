@@ -21,6 +21,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
+                                    <action selector="barcodeNumberChanged:" destination="8S6-67-PoM" eventType="editingChanged" id="vrb-fa-BSo"/>
                                     <outlet property="delegate" destination="8S6-67-PoM" id="lMv-m3-oni"/>
                                 </connections>
                             </textField>
