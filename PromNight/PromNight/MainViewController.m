@@ -76,7 +76,7 @@
     
     NSManagedObject *attendee = [fetchedObjects lastObject];
     
-    self.ticketNumberField.text = [attendee valueForKey:@"ticketNumber"];
+    self.ticketNumberField.text = [[attendee valueForKey:@"ticketNumber"] stringValue];
     self.firstNameField.text = [attendee valueForKey:@"firstName"];
     self.lastNameField.text = [attendee valueForKey:@"lastName"];
     
