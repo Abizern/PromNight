@@ -17,5 +17,8 @@
 @property (weak, nonatomic) IBOutlet UISwitch *arrivedSwitch;
 
 - (IBAction)barcodeNumberChanged:(UITextField *)sender;
+<<<<<<< HEAD
 
+=======
+>>>>>>> a73e6a90c63aeba7292ba3317e62159361e83553
 @end

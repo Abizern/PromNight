@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="8S6-67-PoM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="8S6-67-PoM">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -21,7 +21,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
+<<<<<<< HEAD
                                     <action selector="barcodeNumberChanged:" destination="8S6-67-PoM" eventType="editingChanged" id="vrb-fa-BSo"/>
+=======
+                                    <action selector="barcodeNumberChanged:" destination="8S6-67-PoM" eventType="editingChanged" id="f6b-AR-SYh"/>
+>>>>>>> a73e6a90c63aeba7292ba3317e62159361e83553
                                     <outlet property="delegate" destination="8S6-67-PoM" id="lMv-m3-oni"/>
                                 </connections>
                             </textField>

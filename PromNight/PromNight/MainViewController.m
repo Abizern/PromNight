@@ -32,7 +32,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> a73e6a90c63aeba7292ba3317e62159361e83553
 }
 
 - (void)viewDidUnload {
@@ -100,4 +104,8 @@
 }
 
 
+<<<<<<< HEAD
 @end
+=======
+@end
+>>>>>>> a73e6a90c63aeba7292ba3317e62159361e83553
