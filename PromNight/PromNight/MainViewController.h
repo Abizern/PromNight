@@ -16,4 +16,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lastNameField;
 @property (weak, nonatomic) IBOutlet UISwitch *arrivedSwitch;
 
+- (IBAction)barcodeNumberChanged:(UITextField *)sender;
 @end
