@@ -8,6 +8,6 @@
         <attribute name="ticketNumber" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Attendee" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Attendee" positionX="2689" positionY="540" width="137" height="120"/>
     </elements>
 </model>

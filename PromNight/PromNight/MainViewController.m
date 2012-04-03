@@ -51,10 +51,14 @@
 
 #pragma mark - UITextFieldDelegate methods
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self checkBarcodeNumber:textField.text];
-    textField.text = @"";
-    return YES;
+- (void)executeCheck:(UITextField *)textField {
+    
+    if ([textField.text length] == 6) { 
+        
+        [self checkBarcodeNumber:textField.text];
+        
+    }
+
 }
 
 #pragma mark - Private methods;
