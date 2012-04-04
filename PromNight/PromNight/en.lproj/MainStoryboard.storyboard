@@ -21,11 +21,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
-<<<<<<< HEAD
+
                                     <action selector="barcodeNumberChanged:" destination="8S6-67-PoM" eventType="editingChanged" id="vrb-fa-BSo"/>
-=======
+
                                     <action selector="barcodeNumberChanged:" destination="8S6-67-PoM" eventType="editingChanged" id="f6b-AR-SYh"/>
->>>>>>> a73e6a90c63aeba7292ba3317e62159361e83553
+
                                     <outlet property="delegate" destination="8S6-67-PoM" id="lMv-m3-oni"/>
                                 </connections>
                             </textField>
