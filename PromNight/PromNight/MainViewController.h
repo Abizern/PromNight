@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *ticketNumberField;
 @property (weak, nonatomic) IBOutlet UILabel *firstNameField;
 @property (weak, nonatomic) IBOutlet UILabel *lastNameField;
-@property (weak, nonatomic) IBOutlet UISwitch *arrivedSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *status;
 
 - (IBAction)barcodeNumberChanged:(UITextField *)sender;
 

@@ -20,7 +20,7 @@
 @synthesize ticketNumberField = _ticketNumberField;
 @synthesize firstNameField = _firstNameField;
 @synthesize lastNameField = _lastNameField;
-@synthesize arrivedSwitch = _arrivedSwitch;
+@synthesize status = _status;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -40,7 +40,6 @@
     [self setTicketNumberField:nil];
     [self setFirstNameField:nil];
     [self setLastNameField:nil];
-    [self setArrivedSwitch:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -92,10 +91,24 @@
     self.firstNameField.text = [attendee valueForKey:@"firstName"];
     self.lastNameField.text = [attendee valueForKey:@"lastName"];
     
-    [attendee setValue:[NSNumber numberWithBool:YES] forKey:@"arrived"];
+    NSInteger isHere = [[attendee valueForKey:@"arrived"] boolValue];
     
-    [self.arrivedSwitch setOn:[[attendee valueForKey:@"arrived"] boolValue] animated:YES];
+    if (!isHere) {
+        
+        [attendee setValue:[NSNumber numberWithBool:YES] forKey:@"arrived"];
+        self.status.text = [NSString stringWithFormat: @"%@ %@ has arrived", [attendee valueForKey:@"firstName"], [attendee valueForKey:@"lastName"]];   
+    } else {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Already here!"                                        message:[NSString stringWithFormat:@"%@ %@ has already been scanned into the system!", [attendee valueForKey:@"firstName"], [attendee valueForKey:@"lastName"]]
+            delegate:nil 
+            cancelButtonTitle:@"OK"
+            otherButtonTitles:nil];
+        [alert show];
+        self.status.text = [NSString stringWithFormat:@"%@ %@ has already been scanned into the system!", [attendee valueForKey:@"firstName"], [attendee valueForKey:@"lastName"]];
     
+    }
+    
+    //[self.arrivedSwitch setOn:[[attendee valueForKey:@"arrived"] boolValue] animated:YES];
     
 }
 
