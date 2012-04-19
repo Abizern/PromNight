@@ -50,8 +50,11 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	return YES;
+    // The background doesn't handle rotation, so only present this in portrait.
+    // Either right way up or upside down
+	return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
+
 
 #pragma mark - Custom accessors
 
