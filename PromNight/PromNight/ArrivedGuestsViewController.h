@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ArrivedGuestsViewController : UITableViewController
+@interface ArrivedGuestsViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+
+@property (strong, nonatomic) NSManagedObjectContext *moc;
 
 @end

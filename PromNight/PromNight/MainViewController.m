@@ -62,6 +62,8 @@
     if (!_arrivedPopover) {
         // Create the UITableViewController that will be presented in a popup
         ArrivedGuestsViewController *tableViewController = [[ArrivedGuestsViewController alloc] init];
+        // Pass the managed object context to this controller
+        tableViewController.moc = self.managedObjectContext;
         
         // Create a UIPopoverController to display the contents of this tableview controller.
         UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:tableViewController];

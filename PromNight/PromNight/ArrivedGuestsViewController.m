@@ -10,9 +10,13 @@
 
 @interface ArrivedGuestsViewController ()
 
+@property (strong, nonatomic, readonly) NSFetchedResultsController *frc;
+
 @end
 
 @implementation ArrivedGuestsViewController
+@synthesize moc = _moc;
+@synthesize frc = _frc;
 
 // New designated initialiser
 - (id)init {
@@ -29,11 +33,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    // Fire up the frc to find out who has already arrived.
+    NSError *error;
+    BOOL successfulFetch = [self.frc performFetch:&error];
+    if (!successfulFetch) {
+        DLog(@"Unable to fetch arrived guests because %@", [error description]);
+    }
 }
 
 - (void)viewDidUnload {
@@ -46,40 +54,67 @@
 	return YES;
 }
 
+#pragma mark - Custom accessors
+
+- (NSFetchedResultsController *)frc {
+    if (!_frc) {
+        // Create the fetch request
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Attendee" inManagedObjectContext:self.moc];
+        [fetchRequest setEntity:entity];
+        
+        NSPredicate *arrivedPredicate = [NSPredicate predicateWithFormat:@"arrived == YES"];
+        [fetchRequest setPredicate:arrivedPredicate];
+        
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
+        
+        [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+        [fetchRequest setFetchBatchSize:20];
+        
+        // Create the NSFetchedResultsController
+        NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.moc sectionNameKeyPath:nil cacheName:@"cache"];
+        frc.delegate = self;
+        
+        _frc = frc;
+    }
+    
+    return _frc;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.frc.fetchedObjects count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Configure the cell...
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    
+    NSManagedObject *attendee = [self.frc objectAtIndexPath:indexPath];
+    NSString *name = [NSString stringWithFormat:@"%@, %@", [attendee valueForKey:@"lastName"], [attendee valueForKey:@"firstName"]];
+    NSString *ticketNumber = [NSString stringWithFormat:@"%@", [[attendee valueForKey:@"ticketNumber"] stringValue]];
+    
+    cell.textLabel.text = name;
+    cell.detailTextLabel.text = ticketNumber;
     
     return cell;
 }
 
-#pragma mark - Table view delegate
+#pragma mark - NSFetchedResultsControllerDelegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView reloadData];
 }
-
 @end
