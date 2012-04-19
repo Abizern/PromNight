@@ -2,8 +2,8 @@
 //  AppDelegate.m
 //  PromNight
 //
-//  Created by Abizer Nasir on 30/03/2012.
-//  Copyright (c) 2012 Jungle Candy Software. All rights reserved.
+//  Created by Hanley Hansen on 03/30/2012.
+//  Copyright (c) 2012 Hansen Info Tech. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -19,6 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     MainViewController *mainViewController = (MainViewController *)self.window.rootViewController;
     mainViewController.managedObjectContext = self.managedObjectContext;
+    sleep(2);
     return YES;
 }
 							

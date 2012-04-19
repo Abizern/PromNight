@@ -18,6 +18,8 @@
 		EE51D2F71526054E008781A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE51D2F61526054E008781A1 /* main.m */; };
 		EE51D2FB1526054E008781A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE51D2FA1526054E008781A1 /* AppDelegate.m */; };
 		EE51D2FE1526054E008781A1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE51D2FC1526054E008781A1 /* MainStoryboard.storyboard */; };
+		FBFDED91153F0B3B002567A1 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFDED90153F0B3B002567A1 /* Default-Portrait@2x~ipad.png */; };
+		FBFDED94153F1239002567A1 /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFDED93153F1239002567A1 /* main.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		EE51D2F91526054E008781A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EE51D2FA1526054E008781A1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EE51D2FD1526054E008781A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		FBFDED90153F0B3B002567A1 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait@2x~ipad.png"; path = "../Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		FBFDED93153F1239002567A1 /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,8 @@
 		EE51D2F11526054E008781A1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FBFDED93153F1239002567A1 /* main.png */,
+				FBFDED90153F0B3B002567A1 /* Default-Portrait@2x~ipad.png */,
 				EE0DC9691526089A00896418 /* CommonMacros.h */,
 				EE51D2F21526054E008781A1 /* Info.plist */,
 				EE51D2F31526054E008781A1 /* InfoPlist.strings */,
@@ -180,6 +186,8 @@
 				EE51D2F51526054E008781A1 /* InfoPlist.strings in Resources */,
 				EE51D2FE1526054E008781A1 /* MainStoryboard.storyboard in Resources */,
 				AD183B691526A1CC0033025D /* PromNight.sqlite in Resources */,
+				FBFDED91153F0B3B002567A1 /* Default-Portrait@2x~ipad.png in Resources */,
+				FBFDED94153F1239002567A1 /* main.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
