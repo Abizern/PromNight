@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AD183B65152691E40033025D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD183B64152691E40033025D /* MainViewController.m */; };
 		AD183B691526A1CC0033025D /* PromNight.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = AD183B681526A1CC0033025D /* PromNight.sqlite */; };
+		AD3FEE331540965300C69014 /* ArrivedGuestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3FEE311540965300C69014 /* ArrivedGuestsViewController.m */; };
+		AD3FEE341540965300C69014 /* ArrivedGuestsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD3FEE321540965300C69014 /* ArrivedGuestsViewController.xib */; };
 		EE0DC9621526086000896418 /* PromNight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE0DC9601526086000896418 /* PromNight.xcdatamodeld */; };
 		EE51D2E91526054E008781A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE51D2E81526054E008781A1 /* UIKit.framework */; };
 		EE51D2EB1526054E008781A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE51D2EA1526054E008781A1 /* Foundation.framework */; };
@@ -26,6 +28,9 @@
 		AD183B63152691E40033025D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		AD183B64152691E40033025D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		AD183B681526A1CC0033025D /* PromNight.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PromNight.sqlite; sourceTree = "<group>"; };
+		AD3FEE301540965200C69014 /* ArrivedGuestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrivedGuestsViewController.h; sourceTree = "<group>"; };
+		AD3FEE311540965300C69014 /* ArrivedGuestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrivedGuestsViewController.m; sourceTree = "<group>"; };
+		AD3FEE321540965300C69014 /* ArrivedGuestsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArrivedGuestsViewController.xib; sourceTree = "<group>"; };
 		EE0DC9611526086000896418 /* PromNight.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PromNight.xcdatamodel; sourceTree = "<group>"; };
 		EE0DC9691526089A00896418 /* CommonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonMacros.h; path = ../../Common/CommonMacros.h; sourceTree = "<group>"; };
 		EE51D2E41526054E008781A1 /* PromNight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromNight.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +119,9 @@
 				EE32EF71152606A400ABDB89 /* Model */,
 				EE32EF73152606B000ABDB89 /* Interface */,
 				EE51D2F11526054E008781A1 /* Supporting Files */,
+				AD3FEE301540965200C69014 /* ArrivedGuestsViewController.h */,
+				AD3FEE311540965300C69014 /* ArrivedGuestsViewController.m */,
+				AD3FEE321540965300C69014 /* ArrivedGuestsViewController.xib */,
 			);
 			path = PromNight;
 			sourceTree = "<group>";
@@ -188,6 +196,7 @@
 				AD183B691526A1CC0033025D /* PromNight.sqlite in Resources */,
 				FBFDED91153F0B3B002567A1 /* Default-Portrait@2x~ipad.png in Resources */,
 				FBFDED94153F1239002567A1 /* main.png in Resources */,
+				AD3FEE341540965300C69014 /* ArrivedGuestsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +211,7 @@
 				EE51D2FB1526054E008781A1 /* AppDelegate.m in Sources */,
 				EE0DC9621526086000896418 /* PromNight.xcdatamodeld in Sources */,
 				AD183B65152691E40033025D /* MainViewController.m in Sources */,
+				AD3FEE331540965300C69014 /* ArrivedGuestsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

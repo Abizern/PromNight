@@ -7,8 +7,11 @@
 //
 
 #import "MainViewController.h"
+#import "ArrivedGuestsViewController.h"
 
 @interface MainViewController ()
+
+@property (strong, nonatomic, readonly) UIPopoverController *arrivedPopover;
 
 - (void)checkBarcodeNumber:(NSString *)string;
 
@@ -22,8 +25,8 @@
 @synthesize lastNameField = _lastNameField;
 @synthesize status = _status;
 @synthesize fetchedArrivedObjects;
-@synthesize arrivedTable;
-@synthesize arrivedView;
+
+@synthesize arrivedPopover = _arrivedPopover;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -35,33 +38,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.arrivedView = [[UIView alloc] initWithFrame:CGRectMake(0,0,320,410)];
-    arrivedView.backgroundColor = [UIColor whiteColor];
-    UIToolbar *tb = [[UIToolbar alloc] initWithFrame:CGRectMake(0,0,320,44)];
-    UIBarButtonItem *customItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(backToCheckIn)];
-    NSArray *items = [NSArray arrayWithObjects: customItem, nil];
-    [tb setItems:items animated:NO];
-    
-    arrivedTable = [[UITableView alloc] initWithFrame:CGRectMake(0,44,320,365) style:UITableViewStyleGrouped];
-	arrivedTable.delegate = self;
-    arrivedTable.dataSource = self;
-    [arrivedView addSubview:arrivedTable];
-    [arrivedView addSubview:tb];
-    
-}
-
--(void)backToCheckIn
-{
-    
-    [self.arrivedView removeFromSuperview];
-    
-}
-
-- (void) reloadData 
-{
-    [self.view addSubview:arrivedView];	
-	[self.arrivedTable reloadData];
 }
 
 - (void)viewDidUnload {
@@ -77,30 +53,19 @@
 	return YES;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
-{
-    
-    return [self.fetchedArrivedObjects count];
-    
-}   
+#pragma mark - Custom accessors
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = (UITableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (cell == nil) {
+- (UIPopoverController *)arrivedPopover {
+    if (!_arrivedPopover) {
+        // Create the UITableViewController that will be presented in a popup
+        ArrivedGuestsViewController *tableViewController = [[ArrivedGuestsViewController alloc] init];
         
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        
+        // Create a UIPopoverController to display the contents of this tableview controller.
+        UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:tableViewController];
+        _arrivedPopover = popover;
     }
-	NSDictionary *s =  [self.fetchedArrivedObjects objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@, %@ has arrived", [s objectForKey:@"lastName"], [s objectForKey:@"firstName"]];
     
-    return cell;
-    
+    return _arrivedPopover;
 }
 
 #pragma mark -  Action methods
@@ -115,38 +80,48 @@
 }
 
 - (void)checkWhosArrived:(UIButton *)sender {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Attendee" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
+    // It might be nice to have the popover come out from the button that is clicked to present it.
+    // Just for clarity, initialise variables outside of the call, you could do this all as one line instead.
+    CGRect rect = sender.frame;
+    UIView *view = self.view;
+    UIPopoverArrowDirection direction = UIPopoverArrowDirectionAny;
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"arrived == %@", [NSNumber numberWithBool: YES]];
-    [fetchRequest setPredicate:predicate];
+    [self.arrivedPopover presentPopoverFromRect:rect inView:view permittedArrowDirections:direction animated:YES];
     
-    NSError *error = nil;
-    fetchedArrivedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-        
-    if (!fetchedArrivedObjects) {
-        DLog(@"Unable to retrieve any values because: %@", error);
-    }
     
-    if (!fetchedArrivedObjects.count) {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Attendance Status"                                        message:[NSString stringWithFormat:@"No one has checked in yet"]
-                                                       delegate:nil 
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-        self.ticketNumberField.text = @"";
-        self.firstNameField.text = @"";
-        self.lastNameField.text = @"";
-        self.status.text = @"";
-        
-    } else {
-        
-        NSLog(@"%@", fetchedArrivedObjects);
-        [self reloadData];
-        
-    }
+    
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Attendee" inManagedObjectContext:self.managedObjectContext];
+//    [fetchRequest setEntity:entity];
+//    
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"arrived == %@", [NSNumber numberWithBool: YES]];
+//    [fetchRequest setPredicate:predicate];
+//    
+//    NSError *error = nil;
+//    fetchedArrivedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+//        
+//    if (!fetchedArrivedObjects) {
+//        DLog(@"Unable to retrieve any values because: %@", error);
+//    }
+//    
+//    if (!fetchedArrivedObjects.count) {
+//        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Attendance Status"                                        message:[NSString stringWithFormat:@"No one has checked in yet"]
+//                                                       delegate:nil 
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil];
+//        [alert show];
+//        self.ticketNumberField.text = @"";
+//        self.firstNameField.text = @"";
+//        self.lastNameField.text = @"";
+//        self.status.text = @"";
+//        
+//    } else {
+//        
+//        NSLog(@"%@", fetchedArrivedObjects);
+//        [self reloadData];
+//        
+//    }
 }
 
 #pragma mark - UITextFieldDelegate methods
@@ -177,7 +152,8 @@
     
     if (!fetchedObjects.count) {
     
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Doesn't Exist!"                                        message:[NSString stringWithFormat:@"Ticket Number Doesn't Exist"]
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Doesn't Exist!"
+                                                        message:[NSString stringWithFormat:@"Ticket Number Doesn't Exist"]
                                                        delegate:nil 
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
