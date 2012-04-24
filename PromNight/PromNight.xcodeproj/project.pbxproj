@@ -119,11 +119,11 @@
 				AD183B64152691E40033025D /* MainViewController.m */,
 				EE4744B81546F30900706856 /* ArrivedGuestsViewController.h */,
 				EE4744B91546F30900706856 /* ArrivedGuestsViewController.m */,
+				EE4744D01547083100706856 /* ArrivedGuestsCell.h */,
+				EE4744D11547083100706856 /* ArrivedGuestsCell.m */,
 				EE32EF71152606A400ABDB89 /* Model */,
 				EE32EF73152606B000ABDB89 /* Interface */,
 				EE51D2F11526054E008781A1 /* Supporting Files */,
-				EE4744D01547083100706856 /* ArrivedGuestsCell.h */,
-				EE4744D11547083100706856 /* ArrivedGuestsCell.m */,
 			);
 			path = PromNight;
 			sourceTree = "<group>";

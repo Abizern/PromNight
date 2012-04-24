@@ -46,9 +46,17 @@
 #pragma mark - Private methods
 
 - (void)updateLabels {
+    static NSDateFormatter *dateFormatter = nil;
+    
+    if (!dateFormatter) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateStyle:NSDateFormatterNoStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    }
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [self.guest valueForKey:@"firstName"], [self.guest valueForKey:@"lastName"]];
     self.ticketNumber.text = [[self.guest valueForKey:@"ticketNumber"] stringValue];
-    self.arrivalTime.text = [[self.guest valueForKey:@"arrivalTime"] description];
+    NSDate *arrivedAt = [self.guest valueForKey:@"arrivalTime"];
+    self.arrivalTime.text = [dateFormatter stringFromDate:arrivedAt];
 }
 
 @end
