@@ -2,7 +2,7 @@
 //  ArrivedGuestsViewController.m
 //  PromNight
 //
-//  Created by Abizer Nasir on 19/04/2012.
+//  Created by Abizer Nasir on 24/04/2012.
 //  Copyright (c) 2012 Jungle Candy Software. All rights reserved.
 //
 
@@ -30,10 +30,11 @@
     return [self init];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+	return YES;
 }
+
+#pragma mark - View lifecycle
 
 - (void)viewWillAppear:(BOOL)animated {
     // Fire up the frc to find out who has already arrived.
@@ -44,17 +45,7 @@
     }
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	return YES;
-}
-
-#pragma mark - Custom accessors
+#pragma mark - Custom Accessors
 
 - (NSFetchedResultsController *)frc {
     if (!_frc) {
@@ -82,6 +73,13 @@
     return _frc;
 }
 
+#pragma mark - NSFetchResultsController Delegates
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView reloadData];
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -91,16 +89,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.frc.fetchedObjects count];
+    return self.frc.fetchedObjects.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"ArrivedGuestsCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
     
     NSManagedObject *attendee = [self.frc objectAtIndexPath:indexPath];
     NSString *name = [NSString stringWithFormat:@"%@, %@", [attendee valueForKey:@"lastName"], [attendee valueForKey:@"firstName"]];
@@ -112,9 +107,18 @@
     return cell;
 }
 
-#pragma mark - NSFetchedResultsControllerDelegate
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView reloadData];
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
 }
+
 @end

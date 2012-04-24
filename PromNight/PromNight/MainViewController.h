@@ -21,6 +21,5 @@
 @property (weak, nonatomic) NSArray *fetchedArrivedObjects;
 
 - (IBAction)barcodeNumberChanged:(UITextField *)sender;
-- (IBAction)checkWhosArrived:(UIButton *)sender;
 
 @end

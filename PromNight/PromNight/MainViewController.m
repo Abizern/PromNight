@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Hansen Info Tech. All rights reserved.
 //
 
+static NSString * const ArrivedGuestsSegueIdentifier = @"ArrivedGuestsSegue";
+
 #import "MainViewController.h"
 #import "ArrivedGuestsViewController.h"
 
@@ -55,6 +57,17 @@
 	return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if (![segue.identifier isEqualToString:ArrivedGuestsSegueIdentifier]) {
+        return;
+    }
+    ArrivedGuestsViewController *arrivedGuestsVC = segue.destinationViewController;
+    arrivedGuestsVC.moc = self.managedObjectContext;
+}
+
+
 
 #pragma mark - Custom accessors
 
@@ -84,51 +97,6 @@
     }
 }
 
-- (void)checkWhosArrived:(UIButton *)sender {
-    // It might be nice to have the popover come out from the button that is clicked to present it.
-    // Just for clarity, initialise variables outside of the call, you could do this all as one line instead.
-    CGRect rect = sender.frame;
-    UIView *view = self.view;
-    UIPopoverArrowDirection direction = UIPopoverArrowDirectionAny;
-    
-    [self.arrivedPopover presentPopoverFromRect:rect inView:view permittedArrowDirections:direction animated:YES];
-    
-    
-    
-//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Attendee" inManagedObjectContext:self.managedObjectContext];
-//    [fetchRequest setEntity:entity];
-//    
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"arrived == %@", [NSNumber numberWithBool: YES]];
-//    [fetchRequest setPredicate:predicate];
-//    
-//    NSError *error = nil;
-//    fetchedArrivedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-//        
-//    if (!fetchedArrivedObjects) {
-//        DLog(@"Unable to retrieve any values because: %@", error);
-//    }
-//    
-//    if (!fetchedArrivedObjects.count) {
-//        
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Attendance Status"                                        message:[NSString stringWithFormat:@"No one has checked in yet"]
-//                                                       delegate:nil 
-//                                              cancelButtonTitle:@"OK"
-//                                              otherButtonTitles:nil];
-//        [alert show];
-//        self.ticketNumberField.text = @"";
-//        self.firstNameField.text = @"";
-//        self.lastNameField.text = @"";
-//        self.status.text = @"";
-//        
-//    } else {
-//        
-//        NSLog(@"%@", fetchedArrivedObjects);
-//        [self reloadData];
-//        
-//    }
-}
-
 #pragma mark - UITextFieldDelegate methods
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -136,6 +104,7 @@
     textField.text = @"";
     return YES;
 }
+
 
 
 #pragma mark - Private methods;
