@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AD183B65152691E40033025D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD183B64152691E40033025D /* MainViewController.m */; };
 		AD183B691526A1CC0033025D /* PromNight.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = AD183B681526A1CC0033025D /* PromNight.sqlite */; };
+		AD6C7CF71547376A00CEF6C9 /* Attendee.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6C7CF61547376A00CEF6C9 /* Attendee.m */; };
 		EE0DC9621526086000896418 /* PromNight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE0DC9601526086000896418 /* PromNight.xcdatamodeld */; };
 		EE4744BA1546F30900706856 /* ArrivedGuestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4744B91546F30900706856 /* ArrivedGuestsViewController.m */; };
 		EE4744D21547083100706856 /* ArrivedGuestsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4744D11547083100706856 /* ArrivedGuestsCell.m */; };
@@ -28,6 +29,8 @@
 		AD183B63152691E40033025D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		AD183B64152691E40033025D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MainViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		AD183B681526A1CC0033025D /* PromNight.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PromNight.sqlite; sourceTree = "<group>"; };
+		AD6C7CF51547376A00CEF6C9 /* Attendee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attendee.h; sourceTree = "<group>"; };
+		AD6C7CF61547376A00CEF6C9 /* Attendee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attendee.m; sourceTree = "<group>"; };
 		EE0DC9611526086000896418 /* PromNight.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PromNight.xcdatamodel; sourceTree = "<group>"; };
 		EE0DC9691526089A00896418 /* CommonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonMacros.h; path = ../../Common/CommonMacros.h; sourceTree = "<group>"; };
 		EE4744B81546F30900706856 /* ArrivedGuestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrivedGuestsViewController.h; sourceTree = "<group>"; };
@@ -70,6 +73,8 @@
 			isa = PBXGroup;
 			children = (
 				EE0DC9601526086000896418 /* PromNight.xcdatamodeld */,
+				AD6C7CF51547376A00CEF6C9 /* Attendee.h */,
+				AD6C7CF61547376A00CEF6C9 /* Attendee.m */,
 				AD183B681526A1CC0033025D /* PromNight.sqlite */,
 			);
 			name = Model;
@@ -216,6 +221,7 @@
 				AD183B65152691E40033025D /* MainViewController.m in Sources */,
 				EE4744BA1546F30900706856 /* ArrivedGuestsViewController.m in Sources */,
 				EE4744D21547083100706856 /* ArrivedGuestsCell.m in Sources */,
+				AD6C7CF71547376A00CEF6C9 /* Attendee.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
