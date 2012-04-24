@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Attendee;
 
 @interface ArrivedGuestsCell : UITableViewCell
 
-@property (strong, nonatomic) NSManagedObject *guest;
+@property (strong, nonatomic) Attendee *guest;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ticketNumber;

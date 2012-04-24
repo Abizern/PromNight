@@ -8,6 +8,7 @@
 
 
 #import "ArrivedGuestsCell.h"
+#import "Attendee.h"
 #import "ModelKeys.h"
 #import <CoreData/CoreData.h>
 

@@ -40,6 +40,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     // Fire up the frc to find out who has already arrived.
+    [self.tableView setRowHeight:82.0];
     NSError *error;
     BOOL successfulFetch = [self.frc performFetch:&error];
     if (!successfulFetch) {
@@ -66,7 +67,7 @@
         [fetchRequest setFetchBatchSize:20];
         
         // Create the NSFetchedResultsController
-        NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.moc sectionNameKeyPath:nil cacheName:@"guestCache"];
+        NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.moc sectionNameKeyPath:kModelLastNameInitial cacheName:nil];
         frc.delegate = self;
         
         _frc = frc;
@@ -86,13 +87,29 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    return [[self.frc sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.frc.fetchedObjects.count;
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.frc sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
 }
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return [self.frc sectionIndexTitles];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.frc sections] objectAtIndex:section];
+    return [sectionInfo name];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    return [self.frc sectionForSectionIndexTitle:title atIndex:index];
+}
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
