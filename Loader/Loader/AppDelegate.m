@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Attendee.h"
 
 @interface AppDelegate ()
 
@@ -251,13 +252,13 @@
         
         // Create a new entity in the managed object context
         NSManagedObjectContext *moc = self.managedObjectContext;
-        NSManagedObject *attendee = [NSEntityDescription insertNewObjectForEntityForName:@"Attendee" inManagedObjectContext:moc];
+        Attendee *attendee = [NSEntityDescription insertNewObjectForEntityForName:@"Attendee" inManagedObjectContext:moc];
         
         // Set the values of the the element.
         // We don't need to set the `arrived` value because that defaults to NO, which is correct
         
-        [attendee setValue:[NSNumber numberWithInteger:[[attendeeElements objectAtIndex:0] integerValue]] forKey:kModelTicketNumber];
-        [attendee setValue:[NSNumber numberWithInteger:[[attendeeElements objectAtIndex:1] integerValue]] forKey:kModelBarcodeNumber];
+        [attendee setValue:[NSNumber numberWithInteger:[[attendeeElements objectAtIndex:0] integerValue]] forKey:@"ticketNumber"];
+        [attendee setValue:[NSNumber numberWithInteger:[[attendeeElements objectAtIndex:1] integerValue]] forKey:@"barcodeNumber"];
         
         // Trim leading and trailing whitespace in the names.
         NSString *firstName = [[attendeeElements objectAtIndex:2] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];

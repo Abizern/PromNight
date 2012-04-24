@@ -6,10 +6,10 @@
         <attribute name="barcodeNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="firstName" attributeType="String" syncable="YES"/>
         <attribute name="lastName" attributeType="String" syncable="YES"/>
-        <attribute name="lastNameInitial" transient="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastNameInitial" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
         <attribute name="ticketNumber" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Attendee" positionX="2689" positionY="540" width="137" height="135"/>
+        <element name="Attendee" positionX="2689" positionY="540" width="137" height="150"/>
     </elements>
 </model>
