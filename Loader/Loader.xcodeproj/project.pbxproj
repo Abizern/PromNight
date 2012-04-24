@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD6C7CFA1547392F00CEF6C9 /* Attendee.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6C7CF91547392F00CEF6C9 /* Attendee.m */; };
 		EE0DC9661526087200896418 /* PromNight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE0DC9641526087200896418 /* PromNight.xcdatamodeld */; };
 		EE32EF51152605B600ABDB89 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE32EF50152605B600ABDB89 /* Cocoa.framework */; };
 		EE32EF5B152605B600ABDB89 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE32EF59152605B600ABDB89 /* InfoPlist.strings */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD6C7CF81547392F00CEF6C9 /* Attendee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Attendee.h; path = ../../Common/Attendee.h; sourceTree = "<group>"; };
+		AD6C7CF91547392F00CEF6C9 /* Attendee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Attendee.m; path = ../../Common/Attendee.m; sourceTree = "<group>"; };
 		EE0DC9651526087200896418 /* PromNight.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PromNight.xcdatamodel; sourceTree = "<group>"; };
 		EE0DC9681526088E00896418 /* CommonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonMacros.h; path = ../../Common/CommonMacros.h; sourceTree = "<group>"; };
 		EE32EF4C152605B600ABDB89 /* Loader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loader.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +113,8 @@
 		EE32EF701526068500ABDB89 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AD6C7CF81547392F00CEF6C9 /* Attendee.h */,
+				AD6C7CF91547392F00CEF6C9 /* Attendee.m */,
 				EE0DC9641526087200896418 /* PromNight.xcdatamodeld */,
 			);
 			name = Model;
@@ -182,6 +187,7 @@
 				EE32EF5D152605B600ABDB89 /* main.m in Sources */,
 				EE32EF64152605B600ABDB89 /* AppDelegate.m in Sources */,
 				EE0DC9661526087200896418 /* PromNight.xcdatamodeld in Sources */,
+				AD6C7CFA1547392F00CEF6C9 /* Attendee.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
