@@ -8,6 +8,7 @@
 
 #import "ArrivedGuestsViewController.h"
 #import "ArrivedGuestsCell.h"
+#import "ModelKeys.h"
 
 @interface ArrivedGuestsViewController ()
 
@@ -59,7 +60,7 @@
         NSPredicate *arrivedPredicate = [NSPredicate predicateWithFormat:@"arrived == YES"];
         [fetchRequest setPredicate:arrivedPredicate];
         
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kModelLastName ascending:YES];
         
         [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
         [fetchRequest setFetchBatchSize:20];
@@ -98,13 +99,7 @@
     static NSString *CellIdentifier = @"ArrivedGuestsCell";
     ArrivedGuestsCell *cell = (ArrivedGuestsCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-//    NSManagedObject *attendee = [self.frc objectAtIndexPath:indexPath];
     cell.guest = [self.frc objectAtIndexPath:indexPath];
-//    NSString *name = [NSString stringWithFormat:@"%@, %@", [attendee valueForKey:@"lastName"], [attendee valueForKey:@"firstName"]];
-//    NSString *ticketNumber = [NSString stringWithFormat:@"%@", [[attendee valueForKey:@"ticketNumber"] stringValue]];
-//    
-//    cell.textLabel.text = name;
-//    cell.detailTextLabel.text = ticketNumber;
     
     return cell;
 }

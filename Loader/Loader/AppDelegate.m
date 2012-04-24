@@ -256,8 +256,8 @@
         // Set the values of the the element.
         // We don't need to set the `arrived` value because that defaults to NO, which is correct
         
-        [attendee setValue:[NSNumber numberWithInteger:[[attendeeElements objectAtIndex:0] integerValue]] forKey:@"ticketNumber"];
-        [attendee setValue:[NSNumber numberWithInteger:[[attendeeElements objectAtIndex:1] integerValue]] forKey:@"barcodeNumber"];
+        [attendee setValue:[NSNumber numberWithInteger:[[attendeeElements objectAtIndex:0] integerValue]] forKey:kModelTicketNumber];
+        [attendee setValue:[NSNumber numberWithInteger:[[attendeeElements objectAtIndex:1] integerValue]] forKey:kModelBarcodeNumber];
         
         // Trim leading and trailing whitespace in the names.
         NSString *firstName = [[attendeeElements objectAtIndex:2] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];

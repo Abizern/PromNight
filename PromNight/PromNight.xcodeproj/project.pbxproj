@@ -26,14 +26,14 @@
 
 /* Begin PBXFileReference section */
 		AD183B63152691E40033025D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		AD183B64152691E40033025D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		AD183B64152691E40033025D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MainViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		AD183B681526A1CC0033025D /* PromNight.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PromNight.sqlite; sourceTree = "<group>"; };
 		EE0DC9611526086000896418 /* PromNight.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PromNight.xcdatamodel; sourceTree = "<group>"; };
 		EE0DC9691526089A00896418 /* CommonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonMacros.h; path = ../../Common/CommonMacros.h; sourceTree = "<group>"; };
 		EE4744B81546F30900706856 /* ArrivedGuestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrivedGuestsViewController.h; sourceTree = "<group>"; };
-		EE4744B91546F30900706856 /* ArrivedGuestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrivedGuestsViewController.m; sourceTree = "<group>"; };
+		EE4744B91546F30900706856 /* ArrivedGuestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ArrivedGuestsViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		EE4744D01547083100706856 /* ArrivedGuestsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrivedGuestsCell.h; sourceTree = "<group>"; };
-		EE4744D11547083100706856 /* ArrivedGuestsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrivedGuestsCell.m; sourceTree = "<group>"; };
+		EE4744D11547083100706856 /* ArrivedGuestsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ArrivedGuestsCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		EE51D2E41526054E008781A1 /* PromNight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromNight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE51D2E81526054E008781A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EE51D2EA1526054E008781A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -46,6 +46,7 @@
 		EE51D2F91526054E008781A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EE51D2FA1526054E008781A1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EE51D2FD1526054E008781A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		EE6B9EB81547296A002263C4 /* ModelKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ModelKeys.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		FBFDED90153F0B3B002567A1 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait@2x~ipad.png"; path = "../Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		FBFDED93153F1239002567A1 /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +135,7 @@
 				FBFDED93153F1239002567A1 /* main.png */,
 				FBFDED90153F0B3B002567A1 /* Default-Portrait@2x~ipad.png */,
 				EE0DC9691526089A00896418 /* CommonMacros.h */,
+				EE6B9EB81547296A002263C4 /* ModelKeys.h */,
 				EE51D2F21526054E008781A1 /* Info.plist */,
 				EE51D2F31526054E008781A1 /* InfoPlist.strings */,
 				EE51D2F61526054E008781A1 /* main.m */,

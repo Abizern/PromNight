@@ -8,6 +8,7 @@
 
 
 #import "ArrivedGuestsCell.h"
+#import "ModelKeys.h"
 #import <CoreData/CoreData.h>
 
 @interface ArrivedGuestsCell ()
@@ -53,9 +54,9 @@
         [dateFormatter setDateStyle:NSDateFormatterNoStyle];
         [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     }
-    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [self.guest valueForKey:@"firstName"], [self.guest valueForKey:@"lastName"]];
-    self.ticketNumber.text = [[self.guest valueForKey:@"ticketNumber"] stringValue];
-    NSDate *arrivedAt = [self.guest valueForKey:@"arrivalTime"];
+    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [self.guest valueForKey:kModelFirstName], [self.guest valueForKey:kModelLastName]];
+    self.ticketNumber.text = [[self.guest valueForKey:kModelTicketNumber] stringValue];
+    NSDate *arrivedAt = [self.guest valueForKey:kModelArrivalTime];
     self.arrivalTime.text = [dateFormatter stringFromDate:arrivedAt];
 }
 

@@ -10,6 +10,7 @@ static NSString * const ArrivedGuestsSegueIdentifier = @"ArrivedGuestsSegue";
 
 #import "MainViewController.h"
 #import "ArrivedGuestsViewController.h"
+#import "ModelKeys.h"
 
 @interface MainViewController ()
 
@@ -110,6 +111,15 @@ static NSString * const ArrivedGuestsSegueIdentifier = @"ArrivedGuestsSegue";
 #pragma mark - Private methods;
 
 - (void)checkBarcodeNumber:(NSString *)string {
+    static NSDateFormatter *dateFormatter = nil;
+    
+    if (!dateFormatter) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateStyle:NSDateFormatterNoStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    }
+
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Attendee" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
@@ -141,25 +151,27 @@ static NSString * const ArrivedGuestsSegueIdentifier = @"ArrivedGuestsSegue";
         
         NSManagedObject *attendee = [fetchedObjects lastObject];
         
-        self.ticketNumberField.text = [[attendee valueForKey:@"ticketNumber"] stringValue];
-        self.firstNameField.text = [attendee valueForKey:@"firstName"];
-        self.lastNameField.text = [attendee valueForKey:@"lastName"];
+        self.ticketNumberField.text = [[attendee valueForKey:kModelTicketNumber] stringValue];
+        self.firstNameField.text = [attendee valueForKey:kModelFirstName];
+        self.lastNameField.text = [attendee valueForKey:kModelLastName];
         
-        NSInteger isHere = [[attendee valueForKey:@"arrived"] boolValue];
+        NSInteger isHere = [[attendee valueForKey:kModelArrived] boolValue];
         
         if (!isHere) {
             
-            [attendee setValue:[NSNumber numberWithBool:YES] forKey:@"arrived"];
-            [attendee setValue:[NSDate date] forKey:@"arrivalTime"];
-            self.status.text = [NSString stringWithFormat: @"%@ %@ has arrived", [attendee valueForKey:@"firstName"], [attendee valueForKey:@"lastName"]];   
+            [attendee setValue:[NSNumber numberWithBool:YES] forKey:kModelArrived];
+            [attendee setValue:[NSDate date] forKey:kModelArrivalTime];
+            self.status.text = [NSString stringWithFormat: @"%@ %@ has arrived", [attendee valueForKey:kModelFirstName], [attendee valueForKey:kModelLastName]];   
         } else {
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Already here!"                                        message:[NSString stringWithFormat:@"%@ %@ has already been scanned into the system!", [attendee valueForKey:@"firstName"], [attendee valueForKey:@"lastName"]]
+            NSString *arrivedAt = [dateFormatter stringFromDate:[attendee valueForKey:kModelArrivalTime]];
+            NSString *alertString = [NSString stringWithFormat:@"%@ %@ has already been scanned into the system at %@ !", [attendee valueForKey:kModelFirstName], [attendee valueForKey:kModelLastName], arrivedAt];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Already here!" 
+                                                            message:alertString
                                                            delegate:nil 
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
             [alert show];
-            self.status.text = [NSString stringWithFormat:@"%@ %@ has already been scanned into the system!", [attendee valueForKey:@"firstName"], [attendee valueForKey:@"lastName"]];
+            self.status.text = alertString;
             
         }
     }
