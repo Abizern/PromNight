@@ -8,11 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource> {
-    
-    UIView *arrivedView;
-    UITableView *arrivedTable;
-    
+@interface MainViewController : UIViewController <UITextFieldDelegate> {
+
 }
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -22,9 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lastNameField;
 @property (weak, nonatomic) IBOutlet UILabel *status;
 @property (weak, nonatomic) NSArray *fetchedArrivedObjects;
-@property (nonatomic, retain) UIView *arrivedView;
-@property (nonatomic, retain) UITableView *arrivedTable;
-
 
 - (IBAction)barcodeNumberChanged:(UITextField *)sender;
 - (IBAction)checkWhosArrived:(UIButton *)sender;
