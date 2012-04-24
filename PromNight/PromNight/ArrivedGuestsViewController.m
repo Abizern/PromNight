@@ -7,6 +7,7 @@
 //
 
 #import "ArrivedGuestsViewController.h"
+#import "ArrivedGuestsCell.h"
 
 @interface ArrivedGuestsViewController ()
 
@@ -64,7 +65,7 @@
         [fetchRequest setFetchBatchSize:20];
         
         // Create the NSFetchedResultsController
-        NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.moc sectionNameKeyPath:nil cacheName:@"cache"];
+        NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.moc sectionNameKeyPath:nil cacheName:@"guestCache"];
         frc.delegate = self;
         
         _frc = frc;
@@ -95,30 +96,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ArrivedGuestsCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    ArrivedGuestsCell *cell = (ArrivedGuestsCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    NSManagedObject *attendee = [self.frc objectAtIndexPath:indexPath];
-    NSString *name = [NSString stringWithFormat:@"%@, %@", [attendee valueForKey:@"lastName"], [attendee valueForKey:@"firstName"]];
-    NSString *ticketNumber = [NSString stringWithFormat:@"%@", [[attendee valueForKey:@"ticketNumber"] stringValue]];
-    
-    cell.textLabel.text = name;
-    cell.detailTextLabel.text = ticketNumber;
+//    NSManagedObject *attendee = [self.frc objectAtIndexPath:indexPath];
+    cell.guest = [self.frc objectAtIndexPath:indexPath];
+//    NSString *name = [NSString stringWithFormat:@"%@, %@", [attendee valueForKey:@"lastName"], [attendee valueForKey:@"firstName"]];
+//    NSString *ticketNumber = [NSString stringWithFormat:@"%@", [[attendee valueForKey:@"ticketNumber"] stringValue]];
+//    
+//    cell.textLabel.text = name;
+//    cell.detailTextLabel.text = ticketNumber;
     
     return cell;
-}
-
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 @end

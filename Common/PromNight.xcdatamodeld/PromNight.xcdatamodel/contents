@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11D50b" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Attendee" syncable="YES">
+        <attribute name="arrivalTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="arrived" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="barcodeNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="firstName" attributeType="String" syncable="YES"/>
@@ -8,6 +9,6 @@
         <attribute name="ticketNumber" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Attendee" positionX="2689" positionY="540" width="137" height="120"/>
+        <element name="Attendee" positionX="2689" positionY="540" width="137" height="135"/>
     </elements>
 </model>

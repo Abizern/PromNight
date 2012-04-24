@@ -150,6 +150,7 @@ static NSString * const ArrivedGuestsSegueIdentifier = @"ArrivedGuestsSegue";
         if (!isHere) {
             
             [attendee setValue:[NSNumber numberWithBool:YES] forKey:@"arrived"];
+            [attendee setValue:[NSDate date] forKey:@"arrivalTime"];
             self.status.text = [NSString stringWithFormat: @"%@ %@ has arrived", [attendee valueForKey:@"firstName"], [attendee valueForKey:@"lastName"]];   
         } else {
             

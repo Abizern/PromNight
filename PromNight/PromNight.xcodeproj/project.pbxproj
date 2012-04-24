@@ -11,6 +11,7 @@
 		AD183B691526A1CC0033025D /* PromNight.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = AD183B681526A1CC0033025D /* PromNight.sqlite */; };
 		EE0DC9621526086000896418 /* PromNight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE0DC9601526086000896418 /* PromNight.xcdatamodeld */; };
 		EE4744BA1546F30900706856 /* ArrivedGuestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4744B91546F30900706856 /* ArrivedGuestsViewController.m */; };
+		EE4744D21547083100706856 /* ArrivedGuestsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4744D11547083100706856 /* ArrivedGuestsCell.m */; };
 		EE51D2E91526054E008781A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE51D2E81526054E008781A1 /* UIKit.framework */; };
 		EE51D2EB1526054E008781A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE51D2EA1526054E008781A1 /* Foundation.framework */; };
 		EE51D2ED1526054E008781A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE51D2EC1526054E008781A1 /* CoreGraphics.framework */; };
@@ -31,6 +32,8 @@
 		EE0DC9691526089A00896418 /* CommonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonMacros.h; path = ../../Common/CommonMacros.h; sourceTree = "<group>"; };
 		EE4744B81546F30900706856 /* ArrivedGuestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrivedGuestsViewController.h; sourceTree = "<group>"; };
 		EE4744B91546F30900706856 /* ArrivedGuestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrivedGuestsViewController.m; sourceTree = "<group>"; };
+		EE4744D01547083100706856 /* ArrivedGuestsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrivedGuestsCell.h; sourceTree = "<group>"; };
+		EE4744D11547083100706856 /* ArrivedGuestsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrivedGuestsCell.m; sourceTree = "<group>"; };
 		EE51D2E41526054E008781A1 /* PromNight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromNight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE51D2E81526054E008781A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EE51D2EA1526054E008781A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -114,11 +117,13 @@
 				EE51D2FA1526054E008781A1 /* AppDelegate.m */,
 				AD183B63152691E40033025D /* MainViewController.h */,
 				AD183B64152691E40033025D /* MainViewController.m */,
+				EE4744B81546F30900706856 /* ArrivedGuestsViewController.h */,
+				EE4744B91546F30900706856 /* ArrivedGuestsViewController.m */,
 				EE32EF71152606A400ABDB89 /* Model */,
 				EE32EF73152606B000ABDB89 /* Interface */,
 				EE51D2F11526054E008781A1 /* Supporting Files */,
-				EE4744B81546F30900706856 /* ArrivedGuestsViewController.h */,
-				EE4744B91546F30900706856 /* ArrivedGuestsViewController.m */,
+				EE4744D01547083100706856 /* ArrivedGuestsCell.h */,
+				EE4744D11547083100706856 /* ArrivedGuestsCell.m */,
 			);
 			path = PromNight;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 				EE0DC9621526086000896418 /* PromNight.xcdatamodeld in Sources */,
 				AD183B65152691E40033025D /* MainViewController.m in Sources */,
 				EE4744BA1546F30900706856 /* ArrivedGuestsViewController.m in Sources */,
+				EE4744D21547083100706856 /* ArrivedGuestsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
