@@ -11,8 +11,12 @@ static NSString * const ArrivedGuestsSegueIdentifier = @"ArrivedGuestsSegue";
 #import "MainViewController.h"
 #import "ArrivedGuestsViewController.h"
 #import "ModelKeys.h"
+#import <AudioToolbox/AudioToolbox.h>
 
-@interface MainViewController ()
+@interface MainViewController () {
+    SystemSoundID successSoundID;
+    SystemSoundID errorSoundID;
+}
 
 @property (strong, nonatomic, readonly) UIPopoverController *arrivedPopover;
 
@@ -31,13 +35,28 @@ static NSString * const ArrivedGuestsSegueIdentifier = @"ArrivedGuestsSegue";
 
 @synthesize arrivedPopover = _arrivedPopover;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+#pragma mark - set up and tear down
+
+- (void)awakeFromNib {
+    // Create the sound IDs that are going to be played
+    CFBundleRef mainbundle = CFBundleGetMainBundle();
+    
+    // Success Sound
+    CFURLRef soundFileSuccessURL= CFBundleCopyResourceURL(mainbundle, CFSTR("Success"), CFSTR("wav"), NULL);
+    AudioServicesCreateSystemSoundID(soundFileSuccessURL, &successSoundID);
+    CFRelease(soundFileSuccessURL);
+    
+    // Alert Sound
+    CFURLRef soundFileErrorURL = CFBundleCopyResourceURL(mainbundle, CFSTR("Error"), CFSTR("wav"), NULL);
+    AudioServicesCreateSystemSoundID(soundFileErrorURL, &errorSoundID);
+    CFRelease(soundFileErrorURL);
 }
+
+- (void)dealloc {
+    AudioServicesDisposeSystemSoundID(successSoundID);
+    AudioServicesDisposeSystemSoundID(errorSoundID);
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -131,10 +150,6 @@ static NSString * const ArrivedGuestsSegueIdentifier = @"ArrivedGuestsSegue";
     NSError *error = nil;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-    CFBundleRef mainbundle = CFBundleGetMainBundle();
-    CFURLRef soundFileSuccess, soundFileError;
-    UInt32 soundID;
-    
     if (!fetchedObjects) {
         DLog(@"Unable to retrieve any values because: %@", error);
     }
@@ -151,9 +166,7 @@ static NSString * const ArrivedGuestsSegueIdentifier = @"ArrivedGuestsSegue";
         self.firstNameField.text = @"";
         self.lastNameField.text = @"";
         self.status.text = [NSString stringWithFormat:@"Ticket Number Doesn't Exist"];
-        soundFileError = CFBundleCopyResourceURL(mainbundle, (CFStringRef) @"Error", CFSTR ("wav"), NULL);
-        AudioServicesCreateSystemSoundID(soundFileError, &soundID);
-        AudioServicesPlaySystemSound(soundID);
+        AudioServicesPlaySystemSound(errorSoundID);
                 
     } else {
         
@@ -170,9 +183,7 @@ static NSString * const ArrivedGuestsSegueIdentifier = @"ArrivedGuestsSegue";
             [attendee setValue:[NSNumber numberWithBool:YES] forKey:kModelArrived];
             [attendee setValue:[NSDate date] forKey:kModelArrivalTime];
             self.status.text = [NSString stringWithFormat: @"%@ %@ has arrived", [attendee valueForKey:kModelFirstName], [attendee valueForKey:kModelLastName]];
-            soundFileSuccess = CFBundleCopyResourceURL(mainbundle, (CFStringRef) @"Success", CFSTR ("wav"), NULL);
-            AudioServicesCreateSystemSoundID(soundFileSuccess, &soundID);
-            AudioServicesPlaySystemSound(soundID);
+            AudioServicesPlaySystemSound(successSoundID);
             
         } else {
             NSString *arrivedAt = [dateFormatter stringFromDate:[attendee valueForKey:kModelArrivalTime]];
@@ -184,9 +195,7 @@ static NSString * const ArrivedGuestsSegueIdentifier = @"ArrivedGuestsSegue";
                                                   otherButtonTitles:nil];
             [alert show];
             self.status.text = alertString;
-            soundFileError = CFBundleCopyResourceURL(mainbundle, (CFStringRef) @"Error", CFSTR ("wav"), NULL);
-            AudioServicesCreateSystemSoundID(soundFileError, &soundID);
-            AudioServicesPlaySystemSound(soundID);
+            AudioServicesPlaySystemSound(errorSoundID);
         }
     }
 
