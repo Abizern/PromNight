@@ -21,6 +21,9 @@
 		EE51D2F71526054E008781A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE51D2F61526054E008781A1 /* main.m */; };
 		EE51D2FB1526054E008781A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE51D2FA1526054E008781A1 /* AppDelegate.m */; };
 		EE51D2FE1526054E008781A1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE51D2FC1526054E008781A1 /* MainStoryboard.storyboard */; };
+		FBA0252D155ADFEF00E6487E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA0252C155ADFEF00E6487E /* AudioToolbox.framework */; };
+		FBA02531155AFED700E6487E /* Success.wav in Resources */ = {isa = PBXBuildFile; fileRef = FBA0252F155AFED700E6487E /* Success.wav */; };
+		FBA02532155AFED700E6487E /* Error.wav in Resources */ = {isa = PBXBuildFile; fileRef = FBA02530155AFED700E6487E /* Error.wav */; };
 		FBFDED91153F0B3B002567A1 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFDED90153F0B3B002567A1 /* Default-Portrait@2x~ipad.png */; };
 		FBFDED94153F1239002567A1 /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFDED93153F1239002567A1 /* main.png */; };
 /* End PBXBuildFile section */
@@ -50,6 +53,9 @@
 		EE51D2FA1526054E008781A1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EE51D2FD1526054E008781A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		EE6B9EB81547296A002263C4 /* ModelKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ModelKeys.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		FBA0252C155ADFEF00E6487E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		FBA0252F155AFED700E6487E /* Success.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Success.wav; sourceTree = "<group>"; };
+		FBA02530155AFED700E6487E /* Error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Error.wav; sourceTree = "<group>"; };
 		FBFDED90153F0B3B002567A1 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait@2x~ipad.png"; path = "../Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		FBFDED93153F1239002567A1 /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBA0252D155ADFEF00E6487E /* AudioToolbox.framework in Frameworks */,
 				EE51D2E91526054E008781A1 /* UIKit.framework in Frameworks */,
 				EE51D2EB1526054E008781A1 /* Foundation.framework in Frameworks */,
 				EE51D2ED1526054E008781A1 /* CoreGraphics.framework in Frameworks */,
@@ -72,6 +79,7 @@
 		EE32EF71152606A400ABDB89 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EE6B9EB81547296A002263C4 /* ModelKeys.h */,
 				EE0DC9601526086000896418 /* PromNight.xcdatamodeld */,
 				AD6C7CF51547376A00CEF6C9 /* Attendee.h */,
 				AD6C7CF61547376A00CEF6C9 /* Attendee.m */,
@@ -108,6 +116,7 @@
 		EE51D2E71526054E008781A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FBA0252C155ADFEF00E6487E /* AudioToolbox.framework */,
 				EE51D2E81526054E008781A1 /* UIKit.framework */,
 				EE51D2EA1526054E008781A1 /* Foundation.framework */,
 				EE51D2EC1526054E008781A1 /* CoreGraphics.framework */,
@@ -137,10 +146,11 @@
 		EE51D2F11526054E008781A1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FBA0252F155AFED700E6487E /* Success.wav */,
+				FBA02530155AFED700E6487E /* Error.wav */,
 				FBFDED93153F1239002567A1 /* main.png */,
 				FBFDED90153F0B3B002567A1 /* Default-Portrait@2x~ipad.png */,
 				EE0DC9691526089A00896418 /* CommonMacros.h */,
-				EE6B9EB81547296A002263C4 /* ModelKeys.h */,
 				EE51D2F21526054E008781A1 /* Info.plist */,
 				EE51D2F31526054E008781A1 /* InfoPlist.strings */,
 				EE51D2F61526054E008781A1 /* main.m */,
@@ -205,6 +215,8 @@
 				AD183B691526A1CC0033025D /* PromNight.sqlite in Resources */,
 				FBFDED91153F0B3B002567A1 /* Default-Portrait@2x~ipad.png in Resources */,
 				FBFDED94153F1239002567A1 /* main.png in Resources */,
+				FBA02531155AFED700E6487E /* Success.wav in Resources */,
+				FBA02532155AFED700E6487E /* Error.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -95,6 +95,7 @@ static NSString * const ArrivedGuestsSegueIdentifier = @"ArrivedGuestsSegue";
     if (inputLength == 6) {
         [self checkBarcodeNumber:sender.text];
         sender.text = @"";
+        [sender resignFirstResponder];
     }
 }
 
@@ -130,6 +131,10 @@ static NSString * const ArrivedGuestsSegueIdentifier = @"ArrivedGuestsSegue";
     NSError *error = nil;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
+    CFBundleRef mainbundle = CFBundleGetMainBundle();
+    CFURLRef soundFileSuccess, soundFileError;
+    UInt32 soundID;
+    
     if (!fetchedObjects) {
         DLog(@"Unable to retrieve any values because: %@", error);
     }
@@ -146,7 +151,10 @@ static NSString * const ArrivedGuestsSegueIdentifier = @"ArrivedGuestsSegue";
         self.firstNameField.text = @"";
         self.lastNameField.text = @"";
         self.status.text = [NSString stringWithFormat:@"Ticket Number Doesn't Exist"];
-        
+        soundFileError = CFBundleCopyResourceURL(mainbundle, (CFStringRef) @"Error", CFSTR ("wav"), NULL);
+        AudioServicesCreateSystemSoundID(soundFileError, &soundID);
+        AudioServicesPlaySystemSound(soundID);
+                
     } else {
         
         NSManagedObject *attendee = [fetchedObjects lastObject];
@@ -161,7 +169,11 @@ static NSString * const ArrivedGuestsSegueIdentifier = @"ArrivedGuestsSegue";
             
             [attendee setValue:[NSNumber numberWithBool:YES] forKey:kModelArrived];
             [attendee setValue:[NSDate date] forKey:kModelArrivalTime];
-            self.status.text = [NSString stringWithFormat: @"%@ %@ has arrived", [attendee valueForKey:kModelFirstName], [attendee valueForKey:kModelLastName]];   
+            self.status.text = [NSString stringWithFormat: @"%@ %@ has arrived", [attendee valueForKey:kModelFirstName], [attendee valueForKey:kModelLastName]];
+            soundFileSuccess = CFBundleCopyResourceURL(mainbundle, (CFStringRef) @"Success", CFSTR ("wav"), NULL);
+            AudioServicesCreateSystemSoundID(soundFileSuccess, &soundID);
+            AudioServicesPlaySystemSound(soundID);
+            
         } else {
             NSString *arrivedAt = [dateFormatter stringFromDate:[attendee valueForKey:kModelArrivalTime]];
             NSString *alertString = [NSString stringWithFormat:@"%@ %@ has already been scanned into the system at %@ !", [attendee valueForKey:kModelFirstName], [attendee valueForKey:kModelLastName], arrivedAt];
@@ -172,7 +184,9 @@ static NSString * const ArrivedGuestsSegueIdentifier = @"ArrivedGuestsSegue";
                                                   otherButtonTitles:nil];
             [alert show];
             self.status.text = alertString;
-            
+            soundFileError = CFBundleCopyResourceURL(mainbundle, (CFStringRef) @"Error", CFSTR ("wav"), NULL);
+            AudioServicesCreateSystemSoundID(soundFileError, &soundID);
+            AudioServicesPlaySystemSound(soundID);
         }
     }
 
