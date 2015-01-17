@@ -1,5 +1,11 @@
 # PromNight
 
+
+## Rationale
+
+This app was written as an example / support project for a Stack Overflow user. There are a couple of things in it 
+that are really not best practice (find the `sleep()` call, for example). I should rewrite this at some point when I get some time.
+
 ## Description
 
 A simple iPad app to log students into an event with their ticket number.
